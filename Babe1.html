@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart-Shaped Video Gallery</title>
+    <link rel="stylesheet" type="text/css" href="Babe1.css" /> 
+    <style>
+        /* Include updated CSS here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart-shape">
+            <!-- Videos positioned in heart shape -->
+            <video class="video-background video-1" muted loop>
+                <source src="V1.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-2" muted loop>
+                <source src="V2.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-3" muted loop>
+                <source src="V3.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-4" muted loop>
+                <source src="V4.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-5" muted loop>
+                <source src="V5.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-6" muted loop>
+                <source src="V6.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-7" muted loop>
+                <source src="V7.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-8" muted loop>
+                <source src="V8.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-10" muted loop>
+                <source src="V10.mp4" type="video/mp4">
+            </video>
+            <video class="video-background video-9" muted loop>
+                <source src="V9.mp4" type="video/mp4">
+            </video>            
+        </div>
+
+        <div class="heart-container">
+            <img src="HeartCollage.png" alt="Heart-Shaped Image" class="heart-image">
+        </div>
+
+        <div class="letter">
+            Hi Babeee, I love you always... (the rest of your message)
+        </div>
+    </div>
+
+    <audio id="background-music">
+        <source src="Together - Ne-Yo (Lyrics) (mp3cut.net).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const heartImage = document.querySelector('.heart-image');
+    const letter = document.querySelector('.letter');
+    const audio = document.getElementById('background-music');
+    const videos = document.querySelectorAll('.video-background');
+
+    heartImage.addEventListener('click', () => {
+        // Hide the heart image
+        heartImage.classList.add('vanish');
+        setTimeout(() => heartImage.style.display = 'none', 500);
+
+        // Show all videos in heart shape
+        setTimeout(() => {
+            videos.forEach(video => {
+                video.style.display = 'block';  // Display the video
+                video.play().catch(error => {
+                    console.log('Video play failed:', error);
+                });
+            });
+        }, 500);
+
+        // Show the letter in the center
+        letter.classList.add('show');
+
+        // Play the background music
+        audio.play().catch(error => {
+            console.log('Audio play failed:', error);
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
